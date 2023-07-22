@@ -103,7 +103,7 @@ with col2:
                          use_column_width=True)
                 try:
                     with st.expander("Detection Results"):
-                        bboxes_ = []
+                        # bboxes_ = []
                         for j, bbox in enumerate(bboxes):
                             bbox = bbox.tolist()
 
@@ -111,10 +111,11 @@ with col2:
                             pred = preds[j]
                             
 
-                            if score > threshold:
-                                x1, y1, x2, y2 = [int(i) for i in bbox]
-                                bboxes_.append([x1, y1, x2, y2])
-                            st.write(pred)    
+                            # if score > threshold:
+                            #     x1, y1, x2, y2 = [int(i) for i in bbox]
+                            #     bboxes_.append([x1, y1, x2, y2])
+                        st.write(pred)
+                        st.write(scores)         
                 except Exception as ex:
                     # st.write(ex)
                     st.write("No image is uploaded yet!")
