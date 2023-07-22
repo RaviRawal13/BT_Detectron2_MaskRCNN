@@ -14,6 +14,7 @@ from detectron2.utils.visualizer import Visualizer, ColorMode
 from detectron2.data import MetadataCatalog, DatasetCatalog
 from detectron2.engine import DefaultTrainer
 from detectron2.evaluation import COCOEvaluator, inference_on_dataset
+from detectron2.data.catalog import Metadata
 import os
 from PIL import Image
 import numpy as np
@@ -37,6 +38,9 @@ st.sidebar.header("Detectron2 Model Config")
 
 confidence = float(st.sidebar.slider(
     "Select Model Confidence", 25, 100, 40)) / 100
+
+my_metadata = Metadata()
+my_metadata.set(thing_classes=['BG', 'Tumor'])
 
 
 # Load Pre-trained ML Model
@@ -94,7 +98,7 @@ with col2:
                 scores = outputs["instances"].scores.tolist()
                 bboxes = outputs["instances"].pred_boxes
                 
-                v = Visualizer(image_array[:, :, ::-1], scale=0.7, instance_mode=ColorMode.IMAGE_BW)
+                v = Visualizer(image_array[:, :, ::-1], metadata = my_metadata, scale=0.7, instance_mode=ColorMode.IMAGE_BW)
                 out = v.draw_instance_predictions(outputs["instances"].to("cpu"))
                 img = cv2.cvtColor(out.get_image()[:, :, ::-1], cv2.COLOR_RGBA2RGB)
                 
