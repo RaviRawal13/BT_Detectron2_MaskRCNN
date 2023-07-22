@@ -39,15 +39,12 @@ confidence = float(st.sidebar.slider(
     "Select Model Confidence", 25, 100, 40)) / 100
 
 
-model_path = Path(settings.SEGMENTATION_MODEL)
-
 # Load Pre-trained ML Model
 try:
-    # model = YOLO(model_path, task='segment')
     # load model
     cfg = get_cfg()
-    cfg.merge_from_file(model_zoo.get_config_file('configs/COCO-InstanceSegmentation/mask_rcnn_R_101_FPN_3x.yaml'))
-    cfg.MODEL.WEIGHTS = model_path
+    cfg.merge_from_file(model_zoo.get_config_file('COCO-InstanceSegmentation/mask_rcnn_R_101_FPN_3x.yaml'))
+    cfg.MODEL.WEIGHTS = './output/model_final.pth'
     cfg.MODEL.DEVICE = 'cpu'
 
     predictor = DefaultPredictor(cfg)

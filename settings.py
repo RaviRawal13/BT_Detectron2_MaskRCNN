@@ -21,8 +21,8 @@ IMAGES_DIR = ROOT / 'default'
 DEFAULT_IMAGE = IMAGES_DIR / 'y781_jpg.rf.ee3ab96815e77047e207cfc76b59937b.jpg'
 DEFAULT_DETECT_IMAGE = IMAGES_DIR / 'y781_jpg.rf.ee3ab96815e77047e207cfc76b59937b_detected.png'
 
-# ML Model config 
-MODEL_DIR = ROOT / 'output' 
-SEGMENTATION_MODEL = MODEL_DIR / 'model_final.pth'
+# ML Model config
+# MODEL_DIR = ROOT / 'output' 
+# SEGMENTATION_MODEL = MODEL_DIR / 'model_final.pth'
 
 
