@@ -119,7 +119,8 @@ with col2:
                             #     x1, y1, x2, y2 = [int(i) for i in bbox]
                             #     bboxes_.append([x1, y1, x2, y2])
                         st.write(pred)
-                        st.write(scores)         
+                        st.write(scores)
+                        st.write(bbox)         
                 except Exception as ex:
                     # st.write(ex)
                     st.write("No image is uploaded yet!")
