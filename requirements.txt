@@ -1,4 +1,4 @@
-detectron2==0.6
+detectron2
 py-cpuinfo
 PyYAML
 opencv-python-headless
