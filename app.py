@@ -45,6 +45,8 @@ try:
     cfg = get_cfg()
     cfg.merge_from_file(model_zoo.get_config_file('COCO-InstanceSegmentation/mask_rcnn_R_101_FPN_3x.yaml'))
     cfg.MODEL.WEIGHTS = './output/model_final.pth'
+    cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = confidence
+    cfg.MODEL.ROI_HEADS.NUM_CLASSES = 2
     cfg.MODEL.DEVICE = 'cpu'
 
     predictor = DefaultPredictor(cfg)
