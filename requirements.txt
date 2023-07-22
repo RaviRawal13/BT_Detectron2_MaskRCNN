@@ -1,7 +1,7 @@
 py-cpuinfo
 PyYAML
 opencv-python-headless
-torch
+torch==1.8.0
 git+https://github.com/facebookresearch/detectron2.git
 torchvision
 tqdm
