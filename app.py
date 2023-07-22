@@ -83,7 +83,8 @@ with col2:
                      use_column_width=True)
         else:
             if st.sidebar.button('Detect Objects'):
-                outputs = predictor(uploaded_image)
+                image_array = np.asarray(uploaded_image)
+                outputs = predictor(image_array)
                 threshold = confidence
                 
                 # Display predictions
