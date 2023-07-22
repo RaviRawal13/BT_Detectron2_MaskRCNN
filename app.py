@@ -92,7 +92,7 @@ with col2:
                 scores = outputs["instances"].scores.tolist()
                 bboxes = outputs["instances"].pred_boxes
                 
-                v = Visualizer(uploaded_image[:, :, ::-1], metadata = MetadataCatalog.get("brain_tumor_test"), scale=0.7, instance_mode=ColorMode.IMAGE_BW)
+                v = Visualizer(image_array[:, :, ::-1], metadata = MetadataCatalog.get("brain_tumor_test"), scale=0.7, instance_mode=ColorMode.IMAGE_BW)
                 out = v.draw_instance_predictions(outputs["instances"].to("cpu"))
                 img = cv2.cvtColor(out.get_image()[:, :, ::-1], cv2.COLOR_RGBA2RGB)
                 
